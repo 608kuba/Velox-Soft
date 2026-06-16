@@ -3,64 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Systems | Download & Support</title>
+    <title>Velox Soft - PDF Writer & Viewer</title>
     <style>
+        :root {
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --text-main: #ffffff;
+            --text-muted: #a1a1aa;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            background-color: #0a0e14;
-            color: #e0e6ed;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: linear-gradient(rgba(9, 9, 11, 0.85), rgba(9, 9, 11, 0.85)), url('https://images.prodia.xyz/a5e84841-fcf9-470a-bb7a-dfbd7878d2b2.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #09090b;
+            color: var(--text-main);
+            line-height: 1.6;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
+            padding: 20px;
         }
+
         .container {
-            text-align: center;
-            background: #151b23;
+            max-width: 600px;
+            width: 100%;
+            background-color: rgba(20, 20, 23, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
             padding: 40px;
-            border-radius: 12px;
-            border: 1px solid #00f2ff;
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
-            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
         }
-        h1 { color: #00f2ff; }
-        .btn {
+
+        .icon-wrapper { margin-bottom: 20px; }
+
+        .app-icon {
+            font-size: 64px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             display: inline-block;
-            margin-top: 20px;
-            padding: 12px 24px;
-            background-color: #00f2ff;
-            color: #0a0e14;
+        }
+
+        h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.05em; }
+
+        .studio-name { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.2em; color: #3b82f6; font-weight: 600; margin-bottom: 12px; }
+
+        .version {
+            display: inline-block;
+            background-color: rgba(39, 39, 42, 0.6);
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tagline { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 32px; }
+
+        .download-btn {
+            display: inline-block;
+            width: 100%;
+            background-color: var(--accent-color);
+            color: white;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 6px;
-            transition: 0.3s;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: 12px;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+            margin-bottom: 12px;
         }
-        .btn:hover { background-color: #00a8b3; }
-        .support {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #30363d;
-            font-size: 0.9em;
-            color: #8b949e;
+
+        .download-btn:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
+
+        /* REVOLUT TLAČÍTKO */
+        .revolut-section {
+            margin-top: 24px;
+            text-align: center;
         }
-        .support a { color: #00f2ff; text-decoration: none; }
-        .support a:hover { text-decoration: underline; }
+        .revolut-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 24px;
+            background-color: transparent;
+            color: #3b82f6;
+            border: 1px solid #3b82f6;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .revolut-btn:hover { background-color: rgba(59, 130, 246, 0.1); }
+        .support-text { font-size: 0.85rem; color: var(--text-muted); }
+
+        .file-info { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 32px; }
+
+        .features { text-align: left; border-top: 1px solid var(--border-color); padding-top: 24px; margin-bottom: 32px; }
+
+        .features h3 { font-size: 1.1rem; margin-bottom: 16px; color: var(--text-main); }
+
+        .feature-item { display: flex; align-items: center; margin-bottom: 12px; color: var(--text-muted); font-size: 0.95rem; }
+
+        .feature-icon { margin-right: 12px; font-size: 1.2rem; }
+
+        .alert-box {
+            background-color: rgba(234, 179, 8, 0.05);
+            border: 1px solid rgba(234, 179, 8, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: left;
+            font-size: 0.9rem;
+            color: #fde047;
+            margin-bottom: 24px;
+        }
+
+        .alert-title { font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; }
+        .alert-title-icon { margin-right: 8px; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>JS Systems</h1>
-    <p>Stáhni si nejnovější verzi JSOS a vyzkoušej svobodu.</p>
-    
-    <a href="#" class="btn">Stáhnout JSOS (v0.1)</a>
+    <div class="container">
+        <div class="icon-wrapper">
+            <div class="app-icon">📄</div>
+        </div>
+        
+        <div class="studio-name">Velox Soft</div>
+        <h1>PDF Writer & Viewer</h1>
+        <div class="version">v1.0.0</div>
+        <p class="tagline">Rychlý, temný a lehký editor pro tvoje PDF dokumenty. Bez zbytečností a reklam.</p>
 
-    <div class="support">
-        <p>Ahoj! Pokud tě můj projekt baví a chceš podpořit jeho vývoj, můžeš mi poslat příspěvek přímo na můj účet Revolut:</p>
-        <a href="https://revolut.me/jakubsss" target="_blank">Podpořit projekt přes Revolut</a>
+        <a href="https://www.dropbox.com/scl/fi/kv343185izdzvzz19hu9h/PDF-Writer-Viewer-Setup-1.0.0.exe?rlkey=1xy6lo5yywufaxu6ky2b8mc41&st=90q7yrx6&dl=1" class="download-btn">
+            Stáhnout pro Windows
+        </a>
+        <p class="file-info">Formát: .exe | Bezpečné přímé stahování</p>
+
+        <div class="features">
+            <h3>Hlavní funkce:</h3>
+            <div class="feature-item"><span class="feature-icon">📝</span> <span><strong>Psaní a tvorba:</strong> Vytvářej nová PDF od čistého listu.</span></div>
+            <div class="feature-item"><span class="feature-icon">👁️</span> <span><strong>Prohlížení:</strong> Čistý a rychlý přehrávač dokumentů.</span></div>
+            <div class="feature-item"><span class="feature-icon">🖼️</span> <span><strong>Vkládání obrázků:</strong> Jednoduché vložení grafiky kamkoliv potřebuješ.</span></div>
+            <div class="feature-item"><span class="feature-icon">🌙</span> <span><strong>True Dark Mode:</strong> Šetrný k tvým očím při noční práci.</span></div>
+        </div>
+
+        <div class="alert-box">
+            <div class="alert-title"><span class="alert-title-icon">⚠️</span> <span>Poznámka k instalaci</span></div>
+            <p>Protože aplikace není digitálně podepsaná, Windows Defender může zobrazit varování (SmartScreen). Stačit kliknout na <strong>„Další informace“</strong> a poté na <strong>„Přesto spustit“</strong>.</p>
+        </div>
+
+        <!-- NOVÁ SEKCE PRO PODPORU -->
+        <div class="revolut-section">
+            <p class="support-text">Vývoj Velox Soft mě stojí spoustu času. Pokud ti aplikace pomáhá, můžeš mě podpořit libovolnou částkou:</p>
+            <a href="https://revolut.me/jakubsss" target="_blank" class="revolut-btn">Podpořit vývoj přes Revolut</a>
+        </div>
     </div>
-</div>
 
 </body>
 </html>
